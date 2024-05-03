@@ -1,0 +1,21 @@
+<h1>Health Check</h1>
+<p>Ở đây kiểm tra sức khoẻ (tình trạng đường truyền, v.v):</p>
+<p *ngIf="!result"><em>Loading...</em></p>
+<table class="table table-striped" aria-labelledby="tabelLabel" *ngIf="result">
+    <thead>
+        <tr>
+            <th>Tên</th>
+            <th>Thời gian phản hồi</th>
+            <th>Trạng thái</th>
+            <th>Mô tả</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let check of result.checks">
+            <td>{{check.name}}</td>
+            <td>{{check.responseTime}}</td>
+            <td class="status {{check.status}}">{{check.status}}</td>
+            <td>{{check.description}}</td>
+        </tr>
+    </tbody>
+</table>
